@@ -1,0 +1,37 @@
+MATCH (n)-[r:TAKDIR]->(m) 
+WHERE 
+m.isManager <> true
+RETURN 
+r.name as id,
+n.uID AS from, 
+m.uID AS to,
+r.puan AS point;
+
+MATCH (n)-[r:TESEKKUR]->(m) 
+WHERE 
+m.isManager <> true
+RETURN 
+r.name as id,
+n.uID AS from, 
+m.uID AS to,
+r.puan AS point;
+
+MATCH (n)-[r:DOGUMGUNU]->(m) 
+WHERE 
+m.isManager <> true
+RETURN 
+r.name as id,
+n.uID AS from, 
+m.uID AS to,
+r.puan AS point;
+
+MATCH (n)
+WHERE size((n)--())>0
+RETURN
+n.uID as id,
+n.departmanName as deptName,
+n.departmanID as deptId,
+n.isManager as man,
+n.managerID as manId,
+n.ustdepartmanID as parentDeptId
+
